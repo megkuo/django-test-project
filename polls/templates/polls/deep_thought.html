@@ -1,0 +1,59 @@
+<html>
+
+<!-- 
+
+title: HTML Demo: <dl>
+url: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl -->
+
+
+<body>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <div class ="form-group">
+        <div class="row text-center">
+          <div class="col-sm-7 mx-auto mb-5">
+            <h1>~~void of deep thoughts~~</h1>
+
+            <!-- https://getbootstrap.com/docs/5.0/components/navs-tabs/#tabs -->
+            <div> 
+                <ul class="nav flex-row justify-content-center mx-auto">
+                <li class="nav-item mx-auto">
+                    <a class="nav-link-light active" aria-current="page" href="/polls/deepthoughts" color="#fff">Submit a deep thought</a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link-light" href="/polls/deepthoughts/list">View all deep thoughts</a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link-light" href="#">Deep thought ranking</a>
+                </li>
+                </ul>
+
+            </div>
+          
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'polls/deepthought.css' %}">
+
+            {% if deep_thoughts_list %}
+                <dl>
+                {% for thought in deep_thoughts_list %}
+                    <dt>{{ thought.title }}</dt>
+                    <dd>{{ thought.thoughts_text }}</dd>
+                {% endfor %}
+                </dl>
+            {% else %}
+                <p>No deep thoughts are available...</p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <ul class="nav justify-content-center um-5 mx-auto">
+          <li class="mx-auto"><p>Created by Megan Kuo</p></li>
+          <li class="mx-auto"><p>All rights reserved.</p></li>
+        </ul>
+    </footer>
+</body>
+</html>

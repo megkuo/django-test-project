@@ -1,0 +1,87 @@
+<!-- https://getbootstrap.com/docs/4.4/components/forms/#form-grid 
+https://getbootstrap.com/docs/5.0/components/navs-tabs/#tabs
+
+title: example footer
+url: https://getbootstrap.com/docs/5.2/examples/footers/ 
+
+title: margin auto
+url:  https://bootstrapcreative.com/how-to-center-a-div-horizontally-in-bootstrap-4/
+
+-->
+
+<html>
+  <body>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/deepthought.css' %}">
+  </body>
+
+  <!-- https://getbootstrap.com/docs/5.0/content/images/ -->
+  <!-- <div> 
+    <background>
+      <source srcset="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67401945-34fc-46b8-8e8f-1982847277d4/ddba22b-2fad9d00-1d3f-4ec8-a65d-199a09dfa4e1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY3NDAxOTQ1LTM0ZmMtNDZiOC04ZThmLTE5ODI4NDcyNzdkNFwvZGRiYTIyYi0yZmFkOWQwMC0xZDNmLTRlYzgtYTY1ZC0xOTlhMDlkZmE0ZTEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p1RcYkkOBXh0fzpoZxaTbE1_xNWLfoLqEZv1_0utuzU" type="image/svg+xml">
+      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67401945-34fc-46b8-8e8f-1982847277d4/ddba22b-2fad9d00-1d3f-4ec8-a65d-199a09dfa4e1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY3NDAxOTQ1LTM0ZmMtNDZiOC04ZThmLTE5ODI4NDcyNzdkNFwvZGRiYTIyYi0yZmFkOWQwMC0xZDNmLTRlYzgtYTY1ZC0xOTlhMDlkZmE0ZTEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p1RcYkkOBXh0fzpoZxaTbE1_xNWLfoLqEZv1_0utuzU" class="img-fluid img-thumbnail" alt="...">
+    <background>
+  </div> -->
+  
+  <div class="row text-center mx-auto" >
+    <h1><i>~~give us your deep thoughts~~</i></h1>
+  </div>
+
+  <!-- https://getbootstrap.com/docs/5.0/components/navs-tabs/#tabs -->
+  <div> 
+    <ul class="nav flex-row justify-content-center mx-auto col-sm-7">
+      <li class="nav-item mx-auto">
+        <a class="nav-link-light active" aria-current="page" href="/polls/deepthoughts" color="#fff">Submit a deep thought</a>
+      </li>
+      <li class="nav-item mx-auto">
+        <a class="nav-link-light" href="/polls/deepthoughts/list">View all deep thoughts</a>
+      </li>
+      <li class="nav-item mx-auto">
+        <a class="nav-link-light" href="#">Deep thought ranking</a>
+      </li>
+    </ul>
+
+  </div>
+    
+    <form method="post" novalidate>
+      {% csrf_token %}
+      
+      <div class ="form-group">
+        <div class="row text-center">
+          <div class="col-sm-5 mx-auto mb-2">
+            <label for="example" size="large">Title</label>
+            <input type="text" class="form-control" placeholder="describe your deep thought for me" name="title">
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-7 mx-auto mb-4">
+          <div class ="form-group">
+            <label for="example">Thought</label>
+            <input type="text" class="form-control" placeholder="alright, tell me what your deep thought is" name="thoughts_text">
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="column">
+          <button type="submit" class="btn btn-primary" size="lg" aria-setsize="small">submit!</button>
+          <!-- {% bootstrap_alert "Something went wrong :(" alert_type='error' %}
+          {% bootstrap_alert "submitted ;3" alert_type='success' %} -->
+        </div>
+      </div>
+  </form>
+
+  <footer class="footer">
+    <ul class="nav justify-content-center um-5 mx-auto">
+      <li class="mx-auto"><p>Created by Megan Kuo</p></li>
+      <li class="mx-auto"><p>All rights reserved.</p></li>
+    </ul>
+</footer>
+</html>
+
+<!-- refernces:
+  https://django-bootstrap-v5.readthedocs.io/en/latest/templatetags.html#bootstrap-field -->
